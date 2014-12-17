@@ -79,4 +79,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Action Mailer
+  config.action_mailer.default_url_options = { host: 'http://fyregraph.herokuapp.com/' }
 end
