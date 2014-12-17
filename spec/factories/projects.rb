@@ -1,5 +1,9 @@
 FactoryGirl.define do
   factory :project do
-    name "MyString"
+
+    # Association
+    association: user
+
+    name { Faker::Company.name }
   end
 end

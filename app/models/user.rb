@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Associations
-  has_many :projects
+  has_many :projects, dependent: :destroy
+  has_many :contacts, dependent: :destroy
 
   # Validations
   validates_presence_of :first_name, :last_name, :mobile_phone
