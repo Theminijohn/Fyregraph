@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  username: postgres
+  password: hearthscr 
+  pool: 10
+
+development: 
+  <<: *default
+  database: fyregraph_development
+
+test: &test
+  <<: *default
+  encoding: utf8
+  database: fyregraph_testing
