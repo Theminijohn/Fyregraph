@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   # Root
   root 'pages#home'
 
@@ -10,10 +11,12 @@ Rails.application.routes.draw do
       sign_out: 'logout',
       sign_up: 'register' }
 
-  # Resources
+  # Projects 
   resources :projects do
     collection { post :send_bulk }
     resources :contacts
+    resources :campaigns
   end
+
  
 end

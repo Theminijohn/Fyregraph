@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe TwilioController, :type => :controller do
-
+describe TwilioController do
 end
