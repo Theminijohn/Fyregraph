@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   has_many :projects, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_many :campaigns, dependent: :destroy
-  has_many :messages, dependent: :destroy, as: :messagable
 
   # Validations
   validates_presence_of :first_name, :last_name, :mobile_phone
