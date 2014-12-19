@@ -1,44 +1,61 @@
+<div class="bg-light lter b-b wrapper-md ng-scope">
+  <h1 class="m-n font-thin h3">
+    <%= @project.name %>
+  </h1>
+</div>
+
 <div class="wrapper-md">
   
   <div class="row">
     
     <div class="col-md-3">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="clearfix">
-            <a href="" class="pull-left thumb-md avatar b-3x m-r">
-              <img src="http://flatfull.com/themes/angulr/img/a2.jpg" alt="...">
-            </a>
-            <div class="clear">
-              <div class="h3 m-t-xs m-b-xs">
-                John.Smith 
-                <i class="fa fa-circle text-success pull-right text-xs m-t-sm"></i>
-              </div>
-              <small class="text-muted">Art director</small>
-            </div>
-          </div>
+
+      <div class="panel b-a">
+        <div class="panel-heading no-border bg-primary">          
+          <span class="text-lt">The Restaurant</span>
         </div>
-        <div class="list-group no-radius alt">
+        <div class="item m-l-n-xxs m-r-n-xxs">
 
-          <a class="list-group-item" href="#">
-            <span class="badge bg-success"><%= @project.contacts.count %></span>
-            <i class="fa fa-users fa-fw text-muted"></i> 
-            Contacts
+          <div class="bottom wrapper bg-gd-dk text-white">            
+            <div class="text-u-c h3 m-b-sm text-primary-lter">Coffee</div>
+            <div>Restaurant</div>
+            <div>9:00 am - 12:00 pm</div>
+          </div>
+          <img src="http://flatfull.com/themes/angulr/img/c0.jpg" class="img-full">
+        </div>
+        <div class="hbox text-center b-b b-light text-sm">          
+          <a href="" class="col padder-v text-muted b-r b-light">
+            <i class="ion-ios-people-outline block m-b-xs fa-2x"></i>
+            <span>Contacts</span>
           </a>
-          <a class="list-group-item" href="#">
-            <span class="badge bg-info">16</span>
-            <i class="fa fa-envelope fa-fw text-muted"></i> 
-            Inbox
+          <a href="" class="col padder-v text-muted b-r b-light">
+            <i class="ion-ios-chatboxes-outline block m-b-xs fa-2x"></i>
+            <span>Inbox</span>
           </a>
-          <a class="list-group-item" href="#">
-            <span class="badge bg-light">5</span>
-            <i class="fa fa-eye fa-fw text-muted"></i> 
-            Profile visits
+          <a href="" class="col padder-v text-muted">
+            <i class="ion-ios-settings block m-b-xs fa-2x"></i>
+            <span>Settings</span>
           </a>
-
+        </div>
+        <div class="hbox text-center text-sm">          
+          <a href="" class="col padder-v text-muted b-r b-light">
+            <i class="ion-ios-bolt-outline block m-b-xs fa-2x"></i>
+            <span>Bugs</span>
+          </a>
+          <a href="" class="col padder-v text-muted b-r b-light">
+            <i class="ion-ios-flask-outline block m-b-xs fa-2x"></i>
+            <span>Analytics</span>
+          </a>
+          <a href="" class="col padder-v text-muted">
+            <i class="ion-ios-pulse block m-b-xs fa-2x"></i>
+            <span>Delete</span>
+          </a>
         </div>
       </div>
     </div>
+
+
+    <!-- Right Side -->
     <div class="col-md-9">
       
       <div class="panel panel-default ProjectContactsList">
