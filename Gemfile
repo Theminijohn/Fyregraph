@@ -17,6 +17,7 @@ gem 'devise'
 gem 'ionicons-rails'
 gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.0.0'
+gem 'jquery-datatables-rails', '~> 3.1.1'
 
 group :development, :test do
   gem 'spring'

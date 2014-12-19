@@ -1,9 +1,105 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper-md">
+  
+  <div class="row">
+    
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="clearfix">
+            <a href="" class="pull-left thumb-md avatar b-3x m-r">
+              <img src="http://flatfull.com/themes/angulr/img/a2.jpg" alt="...">
+            </a>
+            <div class="clear">
+              <div class="h3 m-t-xs m-b-xs">
+                John.Smith 
+                <i class="fa fa-circle text-success pull-right text-xs m-t-sm"></i>
+              </div>
+              <small class="text-muted">Art director</small>
+            </div>
+          </div>
+        </div>
+        <div class="list-group no-radius alt">
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+          <a class="list-group-item" href="#">
+            <span class="badge bg-success"><%= @project.contacts.count %></span>
+            <i class="fa fa-users fa-fw text-muted"></i> 
+            Contacts
+          </a>
+          <a class="list-group-item" href="#">
+            <span class="badge bg-info">16</span>
+            <i class="fa fa-envelope fa-fw text-muted"></i> 
+            Inbox
+          </a>
+          <a class="list-group-item" href="#">
+            <span class="badge bg-light">5</span>
+            <i class="fa fa-eye fa-fw text-muted"></i> 
+            Profile visits
+          </a>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      
+      <div class="panel panel-default ProjectContactsList">
+        <div class="panel-heading">
+          Contacts
+        </div>
+        <div class="table-responsive">
+
+          <table class="table table-striped m-b-none dataTable" id="projectContactList">
+            <thead>
+              <tr>
+                <th class="sorting_asc" colspan="1" rowspan="1" style="width: 198px;" tabindex="0">
+                  Name
+                </th>
+
+                <th class="sorting" colspan="1" rowspan="1" style="width: 256px;" tabindex="0">
+                  Mobile Number
+                </th>
+
+                <th class="sorting" colspan="1" rowspan="1" style="width: 255px;" tabindex="0">
+                  Responded
+                </th>
+
+                <th class="sorting" colspan="1" rowspan="1" style="width: 138px;" tabindex="0">
+                  Version
+                </th>
+
+                <th class="sorting" colspan="1" rowspan="1" style="width: 138px;" tabindex="0">
+                  Something
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <% @project.contacts.each do |contact| %>
+                <tr class="<%= cycle("even", "odd") -%>">
+                  <td class="sorting_1">
+                    <%= contact.name %>
+                  </td>
+
+                  <td>
+                    <%= contact.mobile_phone %>
+                  </td>
+
+                  <td>Win 98+ / OSX.2+</td>
+
+                  <td>1.7</td>
+
+                  <td>A</td>
+                </tr>
+              <% end %>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+</div>
