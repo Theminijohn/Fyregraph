@@ -14,9 +14,13 @@ Rails.application.routes.draw do
   # Projects 
   resources :projects do
     collection { post :send_bulk }
-    resources :contacts
+    resources :contacts do
+      resources :messages
+    end
     resources :campaigns
   end
 
+  # Incoming Messages
+  post 'twilio/incoming' => 'twilio#incoming_messages'
  
 end

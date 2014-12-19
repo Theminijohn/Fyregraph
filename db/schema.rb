@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219184412) do
+ActiveRecord::Schema.define(version: 20141219225746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,18 @@ ActiveRecord::Schema.define(version: 20141219184412) do
   add_index "contacts", ["home_phone"], name: "index_contacts_on_home_phone", using: :btree
   add_index "contacts", ["last_name"], name: "index_contacts_on_last_name", using: :btree
   add_index "contacts", ["mobile_phone"], name: "index_contacts_on_mobile_phone", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.integer  "messagable_id"
+    t.string   "messagable_type"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["messagable_id", "messagable_type"], name: "index_messages_on_messagable_id_and_messagable_type", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"

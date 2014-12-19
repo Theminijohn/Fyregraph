@@ -5,16 +5,14 @@ class CampaignsController < ApplicationController
 
   def index
     @campaigns = Campaign.all
-    respond_with(@campaigns)
   end
 
   def show
-    respond_with(@campaign)
+    @campaign = Campaign.find(params[:id])
   end
 
   def new
     @campaign = Campaign.new
-    respond_with(@campaign)
   end
 
   def edit
@@ -22,32 +20,27 @@ class CampaignsController < ApplicationController
 
   def create
 
-    # Identify Project
-    @project = Project.find(@campaign.project_id)
-
-    # Create Campaign
+    @project = Project.find(params[:project_id])
     @campaign = current_user.campaigns.build(campaign_params)
+    @campaign.project_id = @project.id
 
-    # Send Twilio Request
-
-    # Catch exceptions
+    # Send Individual Messages to Contacts
+    @campaign.send_campaign
 
     if @campaign.save
       redirect_to @project, notice: 'Campaign was successfully send!'
-
     else
-      render :back
+      render :new
     end
   end
 
   def update
     @campaign.update(campaign_params)
-    respond_with(@campaign)
   end
 
   def destroy
     @campaign.destroy
-    respond_with(@campaign)
+    redirect_to @project
   end
 
   private

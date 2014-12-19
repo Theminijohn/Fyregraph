@@ -1,8 +1,9 @@
 class Contact < ActiveRecord::Base
 
-  # Association
+  # Associations
   belongs_to :user
   belongs_to :project
+  has_many :messages, dependent: :destroy, as: :messagable
 
   # Validations
   validates :first_name, presence: true
