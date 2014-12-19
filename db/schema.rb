@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217113651) do
+ActiveRecord::Schema.define(version: 20141219225746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaigns", force: true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "campaigns", ["name"], name: "index_campaigns_on_name", using: :btree
+  add_index "campaigns", ["project_id"], name: "index_campaigns_on_project_id", using: :btree
+  add_index "campaigns", ["user_id"], name: "index_campaigns_on_user_id", using: :btree
 
   create_table "contacts", force: true do |t|
     t.integer  "user_id"
@@ -31,6 +45,18 @@ ActiveRecord::Schema.define(version: 20141217113651) do
   add_index "contacts", ["home_phone"], name: "index_contacts_on_home_phone", using: :btree
   add_index "contacts", ["last_name"], name: "index_contacts_on_last_name", using: :btree
   add_index "contacts", ["mobile_phone"], name: "index_contacts_on_mobile_phone", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.integer  "messagable_id"
+    t.string   "messagable_type"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["messagable_id", "messagable_type"], name: "index_messages_on_messagable_id_and_messagable_type", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"

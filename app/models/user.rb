@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   # Associations
   has_many :projects, dependent: :destroy
   has_many :contacts, dependent: :destroy
+  has_many :campaigns, dependent: :destroy
 
   # Validations
   validates_presence_of :first_name, :last_name, :mobile_phone

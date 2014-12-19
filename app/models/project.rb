@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   # Associations
   belongs_to :user
   has_many :contacts, dependent: :destroy
+  has_many :campaigns, dependent: :destroy
 
   # Validations
   validates :name, presence: true
