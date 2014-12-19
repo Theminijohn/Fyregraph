@@ -10,6 +10,7 @@
     
     <div class="col-md-3">
 
+      <!-- Overview Panel -->
       <div class="panel b-a">
         <div class="panel-heading no-border bg-primary">          
           <span class="text-lt">The Restaurant</span>
@@ -52,6 +53,14 @@
           </a>
         </div>
       </div>
+
+      <!-- Import Contact -->
+
+      <button class="btn m-b-xs btn-sm btn-info btn-addon btn-block">
+        <i class="fa fa-trash-o"></i> Import Contacts
+      </button>
+
+
     </div>
 
 
@@ -94,7 +103,7 @@
               <% @project.contacts.each do |contact| %>
                 <tr class="<%= cycle("even", "odd") -%>">
                   <td class="sorting_1">
-                    <%= contact.name %>
+                    <%= link_to contact.name, project_contact_path(@project, contact) %>
                   </td>
 
                   <td>
