@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
 
 $body-bg:                    #f0f3f4;
 $font-family-sans-serif:     'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -10,13 +11,15 @@ $jumbotron-bg:               white;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'font-awesome';
 @import 'ionicons';
-
+@import 'projects/*';
 
 body {
   color: #58666e;
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;
+  padding-top: 60px;
 }
 *:focus {
   outline: 0 !important;
@@ -30,6 +33,7 @@ body {
 .h6 {
   margin: 0;
 }
+
 a {
   color: #363f44;
   text-decoration: none;
@@ -40,6 +44,7 @@ a:focus {
   color: #141719;
   text-decoration: none;
 }
+
 label {
   font-weight: normal;
 }

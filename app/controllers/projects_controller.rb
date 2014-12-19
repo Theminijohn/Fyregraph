@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    @user_projects = current_user.projects.all
+    @user_contacts = current_user.contacts.all
   end
 
   def show

@@ -9,20 +9,40 @@
 </head>
 <body>
 
-<%= render 'layouts/header' %>
 
-<div class="container">
-  <% flash.each do |name, msg| %>
-    <div class="alert alert-info alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <%= msg %>
-    </div>
-  <% end %>
-</div>
+<div class="wrapper">
 
-<div class="container">
-  <%= yield %>
-</div>
+
+  <!-- BEGIN TOP NAV -->
+  <%= render 'layouts/header' %>
+  <!-- END TOP NAV -->
+  
+  
+  <!-- BEGIN SIDEBAR LEFT -->
+  <%= render 'layouts/sidebar' %>
+  <!-- END SIDEBAR LEFT -->
+  
+  
+  
+  <!-- BEGIN SIDEBAR RIGHT HEADING -->
+  <%= render 'layouts/sidebar_right' %>
+  <!-- END SIDEBAR RIGHT -->
+  
+  
+  
+  <!-- BEGIN PAGE CONTENT -->
+  <div class="page-content">
+    <!-- <div class="container-fluid" style="max-width: 1000px"> -->
+    <div class="container-fluid"></div>
+
+      <%= yield%>
+    
+    </div><!-- /.container-fluid -->
+  </div><!-- /.page-content -->
+
+
+</div><!-- /.wrapper -->
+      
 
 </body>
 </html>

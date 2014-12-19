@@ -1,25 +1,109 @@
-<h1>Listing projects</h1>
+<div class="bg-light lter b-b wrapper-md ng-scope">
+  <h1 class="m-n font-thin h3">
+    Projects Overview
+    <span class="badge"><%= current_user.projects.count %></span>
+  </h1>
+  <small class="text-muted">Bootstrap components written in pure AngularJS</small>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="wrapper-md">
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Project', new_project_path %>
+  <div class="row">
+    <div class="col-md-8">
+
+      <!-- Project List -->
+      <div class="panel no-border">
+        <div class="panel-heading wrapper b-b b-light" style="padding:15px;">
+          <span class="text-xs text-muted pull-right">
+            <i class="fa fa-circle text-primary m-r-xs"></i> 12
+            <i class="fa fa-circle text-info m-r-xs m-l-sm"></i> 30
+            <i class="fa fa-circle text-warning m-r-xs m-l-sm"></i> 98
+          </span>
+          <h4 class="font-thin m-t-none m-b-none text-muted">Projects</h4>              
+        </div>
+        <ul class="list-group list-group-lg m-b-none">
+
+          <% @user_projects.each do |project| %>
+            <li class="list-group-item">
+
+              <a href="" class="thumb-sm m-r">
+                <img src="img/a1.jpg" class="r r-2x">
+              </a>
+              <span class="pull-right label bg-primary inline m-t-sm">Admin</span>
+              <%= link_to project.name, project %>
+
+            </li>
+          <% end %>
+
+        </ul>
+        <div class="panel-footer">
+          <%= link_to new_project_path, class: 'btn btn-primary btn-addon btn-sm' do %>
+            <i class="fa fa-plus"></i>Create Project
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="row row-sm text-center">
+
+        <!-- Current Projects Stats -->
+        <div class="col-xs-6">
+          <div class="panel padder-v item">
+            <div class="h1 text-info font-thin h1"><%= @user_projects.count %></div>
+            <span class="text-muted text-xs">Current Projects</span>
+            <div class="top text-right w-full">
+              <i class="fa fa-pie-chart text-warning m-r-sm"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contacts in all Projects -->
+        <div class="col-xs-6">
+          <a href="" class="block panel padder-v bg-primary item">
+            <span class="text-white font-thin h1 block"><%= @user_contacts.count %></span>
+            <span class="text-muted text-xs">Total Contacts</span>
+            <span class="bottom text-right w-full">
+              <i class="fa fa-users text-muted m-r-sm"></i>
+            </span>
+          </a>
+        </div>
+        <div class="col-xs-6">
+          <a href="" class="block panel padder-v bg-info item">
+            <span class="text-white font-thin h1 block">432</span>
+            <span class="text-muted text-xs">Comments</span>
+            <span class="top text-left">
+              <i class="fa fa-caret-up text-warning m-l-sm"></i>
+            </span>
+          </a>
+        </div>
+        <div class="col-xs-6">
+          <div class="panel padder-v item">
+            <div class="font-thin h1">129</div>
+            <span class="text-muted text-xs">Feeds</span>
+            <div class="bottom text-left">
+              <i class="fa fa-caret-up text-warning m-l-sm"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 m-b-md">
+          <div class="r bg-light dker item hbox no-border">
+            <div class="col w-xs v-middle hidden-md">
+              <div ng-init="data1=[60,40]" ui-jq="sparkline" ui-options="[60,40], {type:'pie', height:40, sliceColors:['#fad733','#fff']}" class="sparkline inline"><canvas width="40" height="40" style="display: inline-block; width: 40px; height: 40px; vertical-align: top;"></canvas></div>
+            </div>
+            <div class="col dk padder-v r-r">
+              <div class="text-primary-dk font-thin h1"><span>$12,670</span></div>
+              <span class="text-muted text-xs">Revenue, 60% of the goal</span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
