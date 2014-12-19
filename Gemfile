@@ -16,6 +16,7 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'ionicons-rails'
 gem 'font-awesome-rails'
+gem 'friendly_id', '~> 5.0.0'
 
 group :development, :test do
   gem 'spring'

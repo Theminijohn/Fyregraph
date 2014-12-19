@@ -12,6 +12,8 @@
 
   <div class="row">
     <div class="col-md-8">
+
+      <!-- Project List -->
       <div class="panel no-border">
         <div class="panel-heading wrapper b-b b-light" style="padding:15px;">
           <span class="text-xs text-muted pull-right">
@@ -22,60 +24,50 @@
           <h4 class="font-thin m-t-none m-b-none text-muted">Projects</h4>              
         </div>
         <ul class="list-group list-group-lg m-b-none">
-          <li class="list-group-item">
-            <a href="" class="thumb-sm m-r">
-              <img src="img/a1.jpg" class="r r-2x">
-            </a>
-            <span class="pull-right label bg-primary inline m-t-sm">Admin</span>
-            <a href="">Damon Parker</a>
-          </li>
-          <li class="list-group-item">
-            <a href="" class="thumb-sm m-r">
-              <img src="img/a2.jpg" class="r r-2x">
-            </a>
-            <span class="pull-right label bg-info inline m-t-sm">Member</span>
-            <a href="">Joe Waston</a>
-          </li>
-          <li class="list-group-item">
-            <a href="" class="thumb-sm m-r">
-              <img src="img/a3.jpg" class="r r-2x">
-            </a>
-            <span class="pull-right label bg-warning inline m-t-sm">Editor</span>
-            <a href="">Jannie Dvis</a>
-          </li>
-          <li class="list-group-item">
-            <a href="" class="thumb-sm m-r">
-              <img src="img/a4.jpg" class="r r-2x">
-            </a>
-            <span class="pull-right label bg-warning inline m-t-sm">Editor</span>
-            <a href="">Emma Welson</a>
-          </li>
+
+          <% @user_projects.each do |project| %>
+            <li class="list-group-item">
+
+              <a href="" class="thumb-sm m-r">
+                <img src="img/a1.jpg" class="r r-2x">
+              </a>
+              <span class="pull-right label bg-primary inline m-t-sm">Admin</span>
+              <%= link_to project.name, project %>
+
+            </li>
+          <% end %>
+
         </ul>
         <div class="panel-footer">
-          <span class="pull-right badge badge-bg m-t-xs">32</span>
-          <button class="btn btn-primary btn-addon btn-sm">
+          <%= link_to new_project_path, class: 'btn btn-primary btn-addon btn-sm' do %>
             <i class="fa fa-plus"></i>Create Project
-          </button>
+          <% end %>
         </div>
       </div>
+
     </div>
+
     <div class="col-md-4">
       <div class="row row-sm text-center">
+
+        <!-- Current Projects Stats -->
         <div class="col-xs-6">
           <div class="panel padder-v item">
-            <div class="h1 text-info font-thin h1">521</div>
-            <span class="text-muted text-xs">New items</span>
+            <div class="h1 text-info font-thin h1"><%= @user_projects.count %></div>
+            <span class="text-muted text-xs">Current Projects</span>
             <div class="top text-right w-full">
-              <i class="fa fa-caret-down text-warning m-r-sm"></i>
+              <i class="fa fa-pie-chart text-warning m-r-sm"></i>
             </div>
           </div>
         </div>
+
+        <!-- Contacts in all Projects -->
         <div class="col-xs-6">
           <a href="" class="block panel padder-v bg-primary item">
-            <span class="text-white font-thin h1 block">930</span>
-            <span class="text-muted text-xs">Uploads</span>
+            <span class="text-white font-thin h1 block"><%= @user_contacts.count %></span>
+            <span class="text-muted text-xs">Total Contacts</span>
             <span class="bottom text-right w-full">
-              <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+              <i class="fa fa-users text-muted m-r-sm"></i>
             </span>
           </a>
         </div>
@@ -108,6 +100,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
   </div>

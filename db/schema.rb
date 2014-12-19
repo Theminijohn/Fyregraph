@@ -34,12 +34,15 @@ ActiveRecord::Schema.define(version: 20141217113651) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
+    t.string   "slug"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "projects", ["name"], name: "index_projects_on_name", using: :btree
+  add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
+  add_index "projects", ["user_id", "created_at"], name: "index_projects_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
