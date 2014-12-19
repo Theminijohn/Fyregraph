@@ -1,9 +1,131 @@
-<p id="notice"><%= notice %></p>
+<div class="bg-light lter b-b wrapper-md ng-scope">
+  <h1 class="m-n font-thin h3">
+    <%= @project.name %>
+  </h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<div class="wrapper-md">
+  
+  <div class="row">
+    
+    <div class="col-md-3">
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+      <!-- Overview Panel -->
+      <div class="panel b-a">
+        <div class="panel-heading no-border bg-primary">          
+          <span class="text-lt">The Restaurant</span>
+        </div>
+        <div class="item m-l-n-xxs m-r-n-xxs">
+
+          <div class="bottom wrapper bg-gd-dk text-white">            
+            <div class="text-u-c h3 m-b-sm text-primary-lter">Coffee</div>
+            <div>Restaurant</div>
+            <div>9:00 am - 12:00 pm</div>
+          </div>
+          <img src="http://flatfull.com/themes/angulr/img/c0.jpg" class="img-full">
+        </div>
+        <div class="hbox text-center b-b b-light text-sm">          
+          <a href="" class="col padder-v text-muted b-r b-light">
+            <i class="ion-ios-people-outline block m-b-xs fa-2x"></i>
+            <span>Contacts</span>
+          </a>
+          <a href="" class="col padder-v text-muted b-r b-light">
+            <i class="ion-ios-chatboxes-outline block m-b-xs fa-2x"></i>
+            <span>Inbox</span>
+          </a>
+          <a href="" class="col padder-v text-muted">
+            <i class="ion-ios-settings block m-b-xs fa-2x"></i>
+            <span>Settings</span>
+          </a>
+        </div>
+        <div class="hbox text-center text-sm">          
+          <a href="" class="col padder-v text-muted b-r b-light">
+            <i class="ion-ios-bolt-outline block m-b-xs fa-2x"></i>
+            <span>Bugs</span>
+          </a>
+          <a href="" class="col padder-v text-muted b-r b-light">
+            <i class="ion-ios-flask-outline block m-b-xs fa-2x"></i>
+            <span>Analytics</span>
+          </a>
+          <a href="" class="col padder-v text-muted">
+            <i class="ion-ios-pulse block m-b-xs fa-2x"></i>
+            <span>Delete</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Import Contact -->
+
+      <button class="btn m-b-xs btn-sm btn-info btn-addon btn-block">
+        <i class="fa fa-trash-o"></i> Import Contacts
+      </button>
+
+
+    </div>
+
+
+    <!-- Right Side -->
+    <div class="col-md-9">
+      
+      <div class="panel panel-default ProjectContactsList">
+        <div class="panel-heading">
+          Contacts
+        </div>
+        <div class="table-responsive">
+
+          <table class="table table-striped m-b-none dataTable" id="projectContactList">
+            <thead>
+              <tr>
+                <th class="sorting_asc" colspan="1" rowspan="1" style="width: 198px;" tabindex="0">
+                  Name
+                </th>
+
+                <th class="sorting" colspan="1" rowspan="1" style="width: 256px;" tabindex="0">
+                  Mobile Number
+                </th>
+
+                <th class="sorting" colspan="1" rowspan="1" style="width: 255px;" tabindex="0">
+                  Responded
+                </th>
+
+                <th class="sorting" colspan="1" rowspan="1" style="width: 138px;" tabindex="0">
+                  Version
+                </th>
+
+                <th class="sorting" colspan="1" rowspan="1" style="width: 138px;" tabindex="0">
+                  Something
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <% @project.contacts.each do |contact| %>
+                <tr class="<%= cycle("even", "odd") -%>">
+                  <td class="sorting_1">
+                    <%= link_to contact.name, project_contact_path(@project, contact) %>
+                  </td>
+
+                  <td>
+                    <%= contact.mobile_phone %>
+                  </td>
+
+                  <td>Win 98+ / OSX.2+</td>
+
+                  <td>1.7</td>
+
+                  <td>A</td>
+                </tr>
+              <% end %>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+</div>

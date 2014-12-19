@@ -149,7 +149,6 @@ $(document).ready(function(){
   
   
   
-  
   /** BEGIN SUMMERNOTE **/
   if ($('.summernote-lg').length > 0){
     $('.summernote-lg').summernote({
