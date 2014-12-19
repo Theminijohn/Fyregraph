@@ -7,12 +7,16 @@ class Project < ActiveRecord::Base
   # Validations
   validates :name, presence: true
 
-  # Friendly Id
+  # Friendly Id #
+  # ------------------------------------------------ #
   extend FriendlyId
   friendly_id :random_slug, use: [:slugged, :finders]
 
   def random_slug
     self.slug = SecureRandom.hex(5)
   end
+
+  # Send Bulk to Project #
+  # ------------------------------------------------ #
 
 end

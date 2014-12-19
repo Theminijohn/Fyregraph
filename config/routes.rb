@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # Resources
   resources :projects do
+    collection { post :send_bulk }
     resources :contacts
   end
  

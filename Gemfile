@@ -20,7 +20,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'jquery-datatables-rails', '~> 3.1.1'
 gem 'rails_config'
 
-# SMS Technology
+# Mobile Stack 
 gem 'twilio-ruby', '~> 3.12'
 
 group :development, :test do
