@@ -111,8 +111,8 @@
                 <div class="panel-body pull-in b-t b-light">
                   <div class="panel panel-default m-t-md m-b-n-sm pos-rlt">
                     <span class="arrow top pull-left"></span>
-
-                    <%= form_for new_project_contact_message_path(@project.id, @contact.id, @message) do |f| %>
+                    
+                    <form>
                       <textarea class="form-control no-border" rows="3" placeholder="Your comment..."></textarea>
 
                       <div class="panel-footer bg-light lter">
@@ -122,7 +122,7 @@
                           <li><a href=""><i class="fa fa-video-camera text-muted"></i></a></li>
                         </ul>
                       </div>
-                    <% end %>
+                    </form>
 
 
 
