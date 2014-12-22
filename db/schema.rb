@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20141222162618) do
   create_table "messages", force: true do |t|
     t.text     "body"
     t.boolean  "bug"
+    t.boolean  "send_from_contact"
     t.integer  "user_id"
     t.integer  "project_id"
     t.integer  "contact_id"

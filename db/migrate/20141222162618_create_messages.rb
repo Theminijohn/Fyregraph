@@ -5,6 +5,7 @@ class CreateMessages < ActiveRecord::Migration
       # Attributes
       t.text :body
       t.boolean :bug
+      t.boolean :send_from_contact
 
       # Associations
       t.references :user
