@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   # Root
   root 'pages#home'
 
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
     collection { post :send_bulk }
     resources :contacts
     resources :campaigns
+    resources :messages
   end
 
   # Incoming Messages

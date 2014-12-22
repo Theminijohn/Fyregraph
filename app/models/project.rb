@@ -17,7 +17,4 @@ class Project < ActiveRecord::Base
     self.slug = SecureRandom.hex(5)
   end
 
-  # Send Bulk to Project #
-  # ------------------------------------------------ #
-
 end
