@@ -143,6 +143,7 @@ GEM
       rack
       rake (>= 0.8.1)
     pg (0.17.1)
+    phony (2.2.16)
     polyglot (0.3.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -272,6 +273,7 @@ DEPENDENCIES
   launchy (~> 2.4.2)
   passenger (>= 4.0.42)
   pg
+  phony
   pry-rails
   quiet_assets
   rails (= 4.1.4)

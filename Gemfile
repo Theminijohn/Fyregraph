@@ -22,6 +22,7 @@ gem 'rails_config'
 
 # Mobile Stack 
 gem 'twilio-ruby', '~> 3.12'
+gem 'phony'
 
 group :development, :test do
   gem 'spring'

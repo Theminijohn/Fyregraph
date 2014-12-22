@@ -1,21 +1,28 @@
-require 'twilio-ruby'
 class TwilioController < ApplicationController
+  
+  skip_before_action :verify_authenticity_token
 
-  # Incoming Messages
-  def incoming_messages
+  def incoming_message
 
-    # Get mobile number and format it correctly
+    # binding.pry
+
+    # Get formatted mobile_phone
     number = Phony.normalize(params['From']).to_s.delete(' ')
     mobile = Phony.format(number, format: :+, spaces: '')
 
-    # Find
-    sender = Contact.find_by_mobile_phone(mobile)
+    # Find Contact
+    @contact = Contact.find_by_mobile_phone(mobile)
 
-    # Flags
+    # Build Message
+    @message = Message.create(
+      body: params['Body'],
+      contact_id: @contact.id,
+      project_id: @contact.project_id
+    )
 
-    # <Response/> is the minimum to indicate a "no response" from Twilio
-    render xml: '<Response/>'
-
+    # <Reponse/> is the minimum to indicate a "no response" from Twilio
+    render xml: "<Response/>"
   end
+
 
 end

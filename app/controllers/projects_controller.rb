@@ -42,6 +42,10 @@ class ProjectsController < ApplicationController
     redirect_to projects_path, notice: 'Project was successfully destroyed.'
   end
 
+  # def bulk_delivery
+  #   @project.send_bulk(params[:body], params[:project_id])
+  # end
+
   private
     def set_project
       @project = Project.find(params[:id])

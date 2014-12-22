@@ -12,19 +12,33 @@ class MessagesController < ApplicationController
   end
 
   def new
-    if current_user
-      @message = Message.new
-    else
-      @message = current_user.messages.build
-    end
+    @message = Message.new
   end
 
   def edit
   end
 
   def create
-    @message = Message.new(message_params)
-    @message.save
+
+    # Identify Associations
+    @project = Project.find(params[:project_id])
+    @contact = Contact.find(params[:contact_id])
+
+    # Build Message
+    @message = current_user.messages.build(message_params)
+
+    # Set Id's
+    @message.project_id = @project.id
+    @message.contact_id = @contact.id
+    
+    # Send to Twilio
+    @message.send_message(params[:body], @contact)
+
+    if @message.save
+      redirect_to :back, notice: 'Your message was send successfully.'
+    else
+      render :new 
+    end
   end
 
   def update
@@ -33,6 +47,24 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy
+  end
+
+  def incoming_message
+
+    binding.pry
+
+    # Get formatted mobile_phone
+    number = Phony.normalize(params['From']).to_s.delete(' ')
+    mobile = Phony.format(number, format: :+, spaces: '')
+
+    # Find Contact
+    @contact = Contact.find_by_mobile(mobile)
+
+    # Build Message
+    @message = @contact.messages.build(body: params['Body'])
+
+    # <Reponse/> is the minimum to indicate a "no response" from Twilio
+    render xml: "<Response/>"
   end
 
   private

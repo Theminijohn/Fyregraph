@@ -3,6 +3,7 @@ class Contact < ActiveRecord::Base
   # Associations
   belongs_to :user
   belongs_to :project
+  has_many :messages
   
   # Validations
   validates :first_name, presence: true
